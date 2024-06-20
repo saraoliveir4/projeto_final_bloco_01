@@ -2,17 +2,26 @@ package loja;
 
 import java.util.Scanner;
 
+import loja.model.Cama;
+import loja.model.Loja;
+import loja.model.Roupa;
+
 public class Menu {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+
+		Cama p1 = new Cama(9057, 150.0f, "Cama Royal", 100, 1, "Rosa", 'G');
+		p1.visualizar();
+		Roupa p2 = new Roupa(8051, 50.0f, "Vestido Florido", 180, 2, "Vestido", 'M', "Azul e Amarelo");
+		p2.visualizar();
+
 		Scanner leia = new Scanner(System.in);
-		
+
 		int opcao;
-		
+
 		while (true) {
-			
+
 			System.out.println("*****************************************************");
 			System.out.println("                                                     ");
 			System.out.println("                      LUXO PET                       ");
@@ -30,17 +39,17 @@ public class Menu {
 			System.out.println("*****************************************************");
 			System.out.println("Entre com a opção desejada:                          ");
 			System.out.println("                                                     ");
-			
+
 			opcao = leia.nextInt();
-			
-			if(opcao == 6) {
+
+			if (opcao == 6) {
 				System.out.println("\nLuxo Pet - O seu pet com todo o luxo que merece!");
 				sobre();
 				leia.close();
 				System.exit(0);
 			}
-			
-			switch(opcao) {
+
+			switch (opcao) {
 			case 1:
 				System.out.println("Cadastrar Produto\n\n");
 				break;
@@ -60,11 +69,11 @@ public class Menu {
 				System.out.println("\nOpção Inválida!\n");
 				break;
 			}
-			
-			
+
 		}
 
 	}
+
 	public static void sobre() {
 		System.out.println("\n*****************************************************");
 		System.out.println("Projeto Desenvolvido por: Sara Monteiro Oliveira");
