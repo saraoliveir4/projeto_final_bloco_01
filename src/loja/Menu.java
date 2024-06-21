@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 import loja.controller.LojaController;
 import loja.model.Cama;
-import loja.model.Loja;
 import loja.model.Roupa;
 
 public class Menu {
@@ -17,6 +16,12 @@ public class Menu {
 		LojaController produtos = new LojaController();
 
 		Scanner leia = new Scanner(System.in);
+
+		Cama p1 = new Cama(produtos.gerarId(), 150.0f, "Cama Royal", 10, 1, "Rosa", 'G');
+		produtos.cadastrar(p1);
+
+		Roupa p2 = new Roupa(produtos.gerarId(), 100.0f, "Vestido Lux", 50, 2, "Vestido", 'M', "Azul e Amarelo");
+		produtos.cadastrar(p2);
 
 		int opcao, id, quantidade, categoria;
 		char tamanho;
@@ -135,18 +140,17 @@ public class Menu {
 
 					switch (categoria) {
 					case 1 -> {
-						produtos.atualizar(new Cama(produtos.gerarId(), valorUn, nomeProduto, quantidade, categoria,
-								cor, tamanho));
+						produtos.atualizar(new Cama(id, valorUn, nomeProduto, quantidade, categoria, cor, tamanho));
 					}
 					case 2 -> {
 						System.out.println("\nDigite o Tipo de Roupa: ");
 						tipoDeRoupa = leia.nextLine();
-						produtos.atualizar(new Roupa(produtos.gerarId(), valorUn, nomeProduto, quantidade, categoria,
-								tipoDeRoupa, tamanho, cor));
+						produtos.atualizar(
+								new Roupa(id, valorUn, nomeProduto, quantidade, categoria, tipoDeRoupa, tamanho, cor));
 
 					}
 					default -> {
-						System.out.println("\nCategoria de Produto inválida!");
+						System.out.println("\nCategoria de Produto Inválida!");
 					}
 					}
 				} else {
